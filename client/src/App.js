@@ -1,11 +1,26 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
-import SearchBooks from "./Components/SearchBooks"
+import SearchBooks from "./Components/SearchBooks";
+import SavedBooks from "./Components/SavedBooks";
+import NoMatch from "./Components/NoMatch";
+import Nav from "./Components/Navbar";
 import "./App.css";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 
 function App() {
-  return <SearchBooks />
+  return(
+    <Router>
+    <div>
+    <Nav />
+      <Switch>
+        <Route exact path={["/", "/books"]} component={SearchBooks} />
+        <Route exact path="/saved" component={SavedBooks} />
+        <Route component={NoMatch} />
+        </Switch>
+    </div>
+    </Router>
+  );
 }
 
 
