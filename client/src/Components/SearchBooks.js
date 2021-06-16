@@ -5,6 +5,7 @@ import axios from 'axios';  import { Card } from 'react-bootstrap';
 
 
 const API_KEY = `${process.env.REACT_APP_GOOGLE_API_KEY}`
+console.log(process.env.REACT_APP_GOOGLE_API_KEY)
 function SearchBooks() {  
     const [book, setBook] = useState("");  
     const [result, setResult] = useState([]);  

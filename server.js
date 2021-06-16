@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
+console.log(process.env.REACT_APP_GOOGLE_API_KEY, "server")
 const app = express();
 const mongoose = require("mongoose");
 const mongojs = require('mongojs')
