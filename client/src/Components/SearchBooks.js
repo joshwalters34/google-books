@@ -5,16 +5,16 @@ import axios from 'axios';  import { Card } from 'react-bootstrap';
 
 
 const API_KEY = `${process.env.REACT_APP_GOOGLE_API_KEY}`
-console.log(process.env.REACT_APP_GOOGLE_API_KEY)
 function SearchBooks() {  
     const [book, setBook] = useState("");  
     const [result, setResult] = useState([]);  
-  
+    
     function handleChange(event) {  
         const book = event.target.value;  
         setBook(book);  
     }  
     function handleFormSubmit(event) {  
+        console.log(process.env.REACT_APP_GOOGLE_API_KEY, "API_KEY")
         event.preventDefault();  
         axios.get("https://www.googleapis.com/books/v1/volumes?q=" + book + "&key=" + API_KEY + "&maxResults=40")  
             .then(data => {  
