@@ -1,5 +1,7 @@
 import React, { useState, Component } from "react";  
 import axios from 'axios';  import { Card } from 'react-bootstrap';  
+// const router = require("express").Router();
+// const Books = require("../../models/books.js");
 
 
 const API_KEY = `${process.env.REACT_APP_GOOGLE_API_KEY}`
@@ -19,6 +21,18 @@ function SearchBooks() {
                 setResult(data.data.items);  
             })  
     }  
+
+    function onClick(event) {
+        
+            event.preventDefault();
+        
+        axios
+            .post('/api/submit', {
+                
+            })
+            .then(console.log("Posted succesfully"))
+            .catch(error => console.log(error))
+    }
     return (  
        <div>
            <div className="jumbotron jumbotron-fluid">
@@ -55,7 +69,7 @@ function SearchBooks() {
                                     <h3 className="card-title">{book.volumeInfo.title}</h3>  
                                     <h5 className="card-title">Written by: {book.volumeInfo.authors}</h5> 
                                     <h6 className="card-title">{book.volumeInfo.description}</h6> 
-                                    <a className="btn btn-primary mx-2">Favorite</a>  
+                                    <a className="btn btn-primary mx-2"onClick={onClick}>Favorite</a>  
                                     <a className="btn btn-primary mx-2" href={book.volumeInfo.infoLink}>View Details</a>  
                                 </Card.Body>  
                                 </div> 

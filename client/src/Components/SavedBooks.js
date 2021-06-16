@@ -1,25 +1,20 @@
+import axios from "axios";
 import React, { useState, Component } from "react";  
 import { Card } from 'react-bootstrap';  
 
 
-// const API_KEY = `${process.env.REACT_APP_GOOGLE_API_KEY}`
-// function SearchBooks() {  
-//     const [book, setBook] = useState("");  
-//     const [result, setResult] = useState([]);  
-  
-//     function handleChange(event) {  
-//         const book = event.target.value;  
-//         setBook(book);  
-//     }  
-//     function handleFormSubmit(event) {  
-//         event.preventDefault();  
-//         axios.get("https://www.googleapis.com/books/v1/volumes?q=" + book + "&key=" + API_KEY + "&maxResults=40")  
-//             .then(data => {  
-//                 console.log(data.data.items);  
-//                 setResult(data.data.items);  
-//             })  
-//     }  
-const savedBooks = {
+class SavedBooks extends Component {
+    state = {
+        results,
+    }
+
+    componentDidMount() {
+        axios.get(/api/all)
+        .then(res => {
+            this.setState({results: res.data });
+        })
+    }
+  render() {
     return (  
        <div>
            <div className="jumbotron jumbotron-fluid">
@@ -30,7 +25,7 @@ const savedBooks = {
             </p>
           </div>
         </div>
-        {/* <SearchForm> */}
+       
         <form>  
             <div className="card-header main-search">  
                 <div className="row">  
@@ -44,32 +39,33 @@ const savedBooks = {
             </div>  
             <div className="container">  
                 <div className="row">  
-                    {/* {result.map(book => (   */}
+                    {this.state.results.map(book => (  
                           
                             <Card style={{ 'marginTop': '10px' }}>  
                               <div className="row">
                                 <div className="col-md-4">
-                                <Card.Img variant="top" src="image" />  
+                                <Card.Img variant="top" src={book.image} alt={book.title} />  
                                 </div>
                                 <div className="col-lg-8">
                                 <Card.Body>  
-                                    <h3 className="card-title">Title</h3>  
-                                    <h5 className="card-title">Written by: </h5> 
-                                    <h6 className="card-title">description</h6> 
+                                    <h3 className="card-title">{book.title}</h3>  
+                                    <h5 className="card-title">Written by: {book.authors} </h5> 
+                                    <h6 className="card-title">{book.description}</h6> 
                                     <a className="btn btn-primary mx-2">Favorite</a>  
-                                    <a className="btn btn-primary mx-2" >View Details</a>  
+                                    <a className="btn btn-primary mx-2" href={book.link} >View Details</a>  
                                 </Card.Body>  
                                 </div> 
                                 </div>
                             </Card>  
                          
-                    {/* ))}   */}
+                 ))} 
                 </div>  
             </div>  
             {/* </SearchForm> */}
         </form> 
        </div>
     );
+  }
 }
   
 export default SavedBooks  
