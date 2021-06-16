@@ -9,7 +9,6 @@ const databaseUrl = "googlebooks";
 const collections = ["books"];
 
 const db = mongojs(databaseUrl, collections);
-const PORT = process.env.PORT || 3001;
 
 db.on("error", error => {
   console.log("Database Error:", error);

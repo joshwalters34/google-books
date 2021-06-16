@@ -39,7 +39,7 @@ class SavedBooks extends Component {
             </div>  
             <div className="container">  
                 <div className="row">  
-                    {this.setState.results.map(book => (  
+                    {/* {this.setState.results.map(book => (  
                           
                             <Card style={{ 'marginTop': '10px' }}>  
                               <div className="row">
@@ -58,7 +58,7 @@ class SavedBooks extends Component {
                                 </div>
                             </Card>  
                          
-                 ))} 
+                 ))}  */}
                 </div>  
             </div>  
  
