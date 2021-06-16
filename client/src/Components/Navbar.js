@@ -25,7 +25,7 @@ function Nav() {
                   <Link
                     to="/SavedBooks"
                     className={
-                      window.location.pathname === "/saved"
+                      window.location.pathname === "/SavedBooks"
                         ? "nav-link active"
                         : "nav-link"
                     }

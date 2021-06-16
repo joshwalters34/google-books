@@ -5,11 +5,11 @@ import { Card } from 'react-bootstrap';
 
 class SavedBooks extends Component {
     state = {
-        results,
+        results: '',
     }
 
     componentDidMount() {
-        axios.get(/api/all)
+        axios.get('/api/all')
         .then(res => {
             this.setState({results: res.data });
         })
@@ -39,7 +39,7 @@ class SavedBooks extends Component {
             </div>  
             <div className="container">  
                 <div className="row">  
-                    {this.state.results.map(book => (  
+                    {this.setState.results.map(book => (  
                           
                             <Card style={{ 'marginTop': '10px' }}>  
                               <div className="row">
@@ -61,7 +61,7 @@ class SavedBooks extends Component {
                  ))} 
                 </div>  
             </div>  
-            {/* </SearchForm> */}
+ 
         </form> 
        </div>
     );
