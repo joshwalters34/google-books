@@ -1,0 +1,75 @@
+import React, { useState, Component } from "react";  
+import { Card } from 'react-bootstrap';  
+
+
+// const API_KEY = `${process.env.REACT_APP_GOOGLE_API_KEY}`
+// function SearchBooks() {  
+//     const [book, setBook] = useState("");  
+//     const [result, setResult] = useState([]);  
+  
+//     function handleChange(event) {  
+//         const book = event.target.value;  
+//         setBook(book);  
+//     }  
+//     function handleFormSubmit(event) {  
+//         event.preventDefault();  
+//         axios.get("https://www.googleapis.com/books/v1/volumes?q=" + book + "&key=" + API_KEY + "&maxResults=40")  
+//             .then(data => {  
+//                 console.log(data.data.items);  
+//                 setResult(data.data.items);  
+//             })  
+//     }  
+const savedBooks = {
+    return (  
+       <div>
+           <div className="jumbotron jumbotron-fluid">
+          <div className="container">
+            <h1 className="display-4">Google Books Search</h1>
+            <p className="lead">
+              Saved Books
+            </p>
+          </div>
+        </div>
+        {/* <SearchForm> */}
+        <form>  
+            <div className="card-header main-search">  
+                <div className="row">  
+                    <div className="col-12 col-md-3 col-xl-3">  
+                        <input className="AutoFocus form-control" placeholder="Type something..." type="text" />  
+                    </div>  
+                    <div className="ml-auto">  
+                        <input type="submit" value="Search" className="btn btn-primary search-btn" />  
+                    </div>  
+                </div>  
+            </div>  
+            <div className="container">  
+                <div className="row">  
+                    {/* {result.map(book => (   */}
+                          
+                            <Card style={{ 'marginTop': '10px' }}>  
+                              <div className="row">
+                                <div className="col-md-4">
+                                <Card.Img variant="top" src="image" />  
+                                </div>
+                                <div className="col-lg-8">
+                                <Card.Body>  
+                                    <h3 className="card-title">Title</h3>  
+                                    <h5 className="card-title">Written by: </h5> 
+                                    <h6 className="card-title">description</h6> 
+                                    <a className="btn btn-primary mx-2">Favorite</a>  
+                                    <a className="btn btn-primary mx-2" >View Details</a>  
+                                </Card.Body>  
+                                </div> 
+                                </div>
+                            </Card>  
+                         
+                    {/* ))}   */}
+                </div>  
+            </div>  
+            {/* </SearchForm> */}
+        </form> 
+       </div>
+    );
+}
+  
+export default SavedBooks  

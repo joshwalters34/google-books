@@ -5,6 +5,7 @@ import SavedBooks from "./Components/SavedBooks";
 import NoMatch from "./Components/NoMatch";
 import Nav from "./Components/Navbar";
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 

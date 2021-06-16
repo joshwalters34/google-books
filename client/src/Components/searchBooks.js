@@ -1,7 +1,6 @@
 import React, { useState, Component } from "react";  
-import axios from 'axios';  
-import { Card } from 'react-bootstrap';  
-import SearchForm from "./SearchForm";
+import axios from 'axios';  import { Card } from 'react-bootstrap';  
+
 
 const API_KEY = `${process.env.REACT_APP_GOOGLE_API_KEY}`
 function SearchBooks() {  
@@ -45,16 +44,24 @@ function SearchBooks() {
             <div className="container">  
                 <div className="row">  
                     {result.map(book => (  
-                        <div className="col-sm-2">  
+                          
                             <Card style={{ 'marginTop': '10px' }}>  
-  
+                              <div className="row">
+                                <div className="col-md-4">
                                 <Card.Img variant="top" src={book.volumeInfo.imageLinks !== undefined ? book.volumeInfo.imageLinks.thumbnail : ''} alt={book.title} />  
+                                </div>
+                                <div className="col-lg-8">
                                 <Card.Body>  
-                                    <h5 className="card-title">Card title</h5>  
-                                    <a className="btn btn-primary">Know more</a>  
+                                    <h3 className="card-title">{book.volumeInfo.title}</h3>  
+                                    <h5 className="card-title">Written by: {book.volumeInfo.authors}</h5> 
+                                    <h6 className="card-title">{book.volumeInfo.description}</h6> 
+                                    <a className="btn btn-primary mx-2">Favorite</a>  
+                                    <a className="btn btn-primary mx-2" href={book.volumeInfo.infoLink}>View Details</a>  
                                 </Card.Body>  
+                                </div> 
+                                </div>
                             </Card>  
-                        </div>  
+                         
                     ))}  
                 </div>  
             </div>  
