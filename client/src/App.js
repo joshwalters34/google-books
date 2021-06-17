@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import logo from "./logo.svg";
+import React from "react";
 import SearchBooks from "./Components/SearchBooks";
 import SavedBooks from "./Components/SavedBooks";
 import NoMatch from "./Components/NoMatch";
