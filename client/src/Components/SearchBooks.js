@@ -4,7 +4,6 @@ import axios from 'axios';  import { Card } from 'react-bootstrap';
 // const Books = require("../../models/books.js");
 
 
-const API_KEY = `${process.env.REACT_APP_GOOGLE_API_KEY}`
 function SearchBooks() {  
     const [book, setBook] = useState("");  
     const [result, setResult] = useState([]);  
@@ -13,14 +12,10 @@ function SearchBooks() {
         const book = event.target.value;  
         setBook(book);  
     }  
-    function handleFormSubmit(event) {  
-        console.log(process.env.REACT_APP_GOOGLE_API_KEY, "API_KEY")
+    async function handleFormSubmit(event) {  
         event.preventDefault();  
-        axios.get("https://www.googleapis.com/books/v1/volumes?q=" + book + "&key=" + API_KEY + "&maxResults=40")  
-            .then(data => {  
-                console.log(data.data.items);  
-                setResult(data.data.items);  
-            })  
+        const data = await axios.get("/api/googlebooks/" + book)  
+        setResult(data.data)
     }  
 
     function onClick(event) {

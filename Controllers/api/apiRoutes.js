@@ -1,5 +1,6 @@
 const router = require("express").Router();
-const Books = require("../../models/books.js");
+const Books = require("../../models/book.js");
+const axios = require('axios');
 
 router.get("/all", (req, res) => {
     Books.find({}, (error, data) => {
@@ -22,5 +23,13 @@ router.get("/all", (req, res) => {
       }
     });
   });
+
+router.get("/googlebooks/:book", (req, res) => {
+  console.log(process.env.GOOGLE_API_KEY, "env");
+  axios.get("https://www.googleapis.com/books/v1/volumes?q=" + req.params.book + "&key=" + process.env.GOOGLE_API_KEY + "&maxResults=40")
+    .then(data => {
+      res.json(data.data.items)
+    })  
+})
 
   module.exports = router;

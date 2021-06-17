@@ -1,14 +1,13 @@
 const express = require("express");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
-console.log(process.env.REACT_APP_GOOGLE_API_KEY, "server")
 const app = express();
 const mongoose = require("mongoose");
 const mongojs = require('mongojs')
-
+const controllers = require('./Controllers');
 const databaseUrl = "googlebooks";
 const collections = ["books"];
-
+require('dotenv').config();
 const db = mongojs(databaseUrl, collections);
 
 db.on("error", error => {
@@ -31,7 +30,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks", {
 });
 
 // Define API routes here
-
+app.use(controllers);
 // Send every other request to the React app
 // Define any API routes before this runs
 app.get("*", (req, res) => {

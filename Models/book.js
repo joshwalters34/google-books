@@ -16,10 +16,10 @@ const BookSchema = new Schema({
             },
             image: {
                 data: Buffer,
-                ContentType: string
+                ContentType: String
             },
             link: {
-                type: string
+                type: String
             }
                    },
     ],
