@@ -1,7 +1,6 @@
-import React, { useState, Component } from "react";  
+import React, { useState} from "react";  
 import axios from 'axios';  import { Card } from 'react-bootstrap';  
-// const router = require("express").Router();
-// const Books = require("../../models/books.js");
+
 
 
 function SearchBooks() {  
@@ -39,12 +38,12 @@ function SearchBooks() {
             </p>
           </div>
         </div>
-        {/* <SearchForm> */}
+      
         <form onSubmit={handleFormSubmit}>  
             <div className="card-header main-search">  
                 <div className="row">  
                     <div className="col-12 col-md-3 col-xl-3">  
-                        <input onChange={handleChange} className="AutoFocus form-control" placeholder="Type something..." type="text" />  
+                        <input onChange={handleChange} className="AutoFocus form-control" placeholder="Search for a book..." type="text" />  
                     </div>  
                     <div className="ml-auto">  
                         <input type="submit" value="Search" className="btn btn-primary search-btn" />  
@@ -75,7 +74,6 @@ function SearchBooks() {
                     ))}  
                 </div>  
             </div>  
-            {/* </SearchForm> */}
         </form> 
        </div>
     );

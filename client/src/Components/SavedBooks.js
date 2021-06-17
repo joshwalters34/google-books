@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState, Component } from "react";  
+import React, { Component } from "react";  
 import { Card } from 'react-bootstrap';  
 
 
@@ -26,19 +26,11 @@ class SavedBooks extends Component {
           </div>
         </div>
        
-        <form>  
-            <div className="card-header main-search">  
-                <div className="row">  
-                    <div className="col-12 col-md-3 col-xl-3">  
-                        <input className="AutoFocus form-control" placeholder="Type something..." type="text" />  
-                    </div>  
-                    <div className="ml-auto">  
-                        <input type="submit" value="Search" className="btn btn-primary search-btn" />  
-                    </div>  
-                </div>  
-            </div>  
+         
+             
             <div className="container">  
                 <div className="row">  
+                <h5>You have no saved books to display</h5>
                     {/* {this.setState.results.map(book => (  
                           
                             <Card style={{ 'marginTop': '10px' }}>  
@@ -61,8 +53,6 @@ class SavedBooks extends Component {
                  ))}  */}
                 </div>  
             </div>  
- 
-        </form> 
        </div>
     );
   }
