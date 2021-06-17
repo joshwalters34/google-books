@@ -13,17 +13,21 @@ View my [GitHub_Repository](https://github.com/joshwalters34/google-books)
 Visit my [Website](https://sheltered-brook-36297.herokuapp.com/)
 
 ### Images
-![Screenshot](./src/Assets/Images/react-portfolio.png)
+![Screenshot](./client/public/Google-Books-screenshot.png)
 
 
 
 ### Technologies 
 - React
 - React Router
+- Axios
+- Mongoose
+- Mongojs
+- React-Bootstrap
 - Javascript
-- Bootstrap
 - React-dom
-- fontawesome
+- Dotenv
+- express
 
 
 ### Installation
